@@ -496,6 +496,53 @@
         </div>
     </footer>
 
+
+
+    <!-- Loading Animation -->
+<div id="loading">
+    <div class="book-loader">
+        <div class="book-page"></div>
+        <div class="book-page"></div>
+        <div class="book-page"></div>
+        <div class="book-page"></div>
+        <div class="book-page"></div>
+        <div class="book-page"></div>
+    </div>
+    <div class="loading-text">Inapakia Mwenge Secondary School...</div>
+</div>
+
+<script>
+// Loading animation control
+window.addEventListener('load', function() {
+    const loading = document.getElementById('loading');
+    setTimeout(() => {
+        loading.classList.add('hidden');
+        setTimeout(() => {
+            loading.style.display = 'none';
+        }, 500);
+    }, 2500);
+});
+
+// Fix smooth scrolling for header
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+            const headerHeight = 120;
+            const targetPosition = target.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+</script>
+    
+
     <script src="script.js"></script>
 </body>
 </html>
